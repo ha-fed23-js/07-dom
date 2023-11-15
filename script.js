@@ -54,3 +54,47 @@ toggleBtn.addEventListener('click', () => {
 	}
 	isVisible = !isVisible
 })
+
+
+// 4a Bygg en sida med ett trafikljus.När man klickar på en knapp ska nästa lampa i serien tändas.
+// 	Rött → gult → grönt.
+
+// 4b* Gör ett realistiskt trafikljus:
+// rött → rött och gult samtidigt → grönt → gult → rött ljus
+const top = document.querySelector('.lights > .top')
+const middle = document.querySelector('.lights > .middle')
+const bottom = document.querySelector('.lights > .bottom')
+const lightBtn = document.querySelector('#light-btn')
+
+let lightState = 0  // börjar på röd
+
+lightBtn.addEventListener('click', () => {
+	if( lightState === 0 ) {
+		// Rött ljus, ska övergå i rött+gult
+		// gul: lägg till on-klassen
+		middle.classList.add('on')
+		// bottom.classList.remove('on') - om man vill vara extra säker
+	}
+	else if( lightState === 1 ) {
+		// Rött+gult ljus, ska övergå i grönt
+		top.classList.remove('on')
+		middle.classList.remove('on')
+		bottom.classList.add('on')
+	}
+	else if( lightState === 2 ) {
+		// Grönt ljus, ska övergå i gult
+		bottom.classList.remove('on')
+		middle.classList.add('on')
+	}
+	else { //if( lightState === 3 ) {
+		// Gult ljus, ska övergå i rött
+		middle.classList.remove('on')
+		top.classList.add('on')
+	}
+	lightState++
+	console.log('light state:', lightState);
+
+	if( lightState > 3 ) {
+		lightState = 0
+	}
+})
