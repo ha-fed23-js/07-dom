@@ -98,3 +98,29 @@ lightBtn.addEventListener('click', () => {
 		lightState = 0
 	}
 })
+
+
+
+// Demo: lägga till element
+function addCards() {
+	const cards = document.querySelector('.cards')
+	// console.log('addCards', cards);
+
+	for( let i=1; i <= 5; i++ ) {
+		let div = document.createElement('div')
+		// div.id = 'kalas' + i
+		div.innerText = i
+		if( i === 2 ) {
+			div.classList.add('festive')
+		}
+
+		div.addEventListener('click', () => {
+			div.classList.toggle('festive')
+			div.innerText += '!'
+		})
+		
+		cards.append(div)
+	}
+}
+
+addCards()

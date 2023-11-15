@@ -48,3 +48,26 @@ input:focus {
 .bottom.on {
 	background-color: #37A11D;
 }
+
+
+/* Demo skapa element */
+.cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border: 1px solid gray;
+	min-height: 1em;
+	margin-top: 1em;
+}
+
+.cards > * {
+	width: 5em;
+	height: 8em;
+	border: 1px solid gray;
+	padding-top: 1em;
+	text-align: center;
+}
+
+.festive {
+	background-color: hotpink;
+}
