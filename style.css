@@ -12,3 +12,8 @@ input:focus {
 	border: 1px solid rgb(89, 89, 89);
 	min-height: 1em;
 }
+
+.hidden {
+	/* display none, visibility, opacticy, z-index .... */
+	visibility: hidden;
+}
